@@ -2,6 +2,8 @@ import Navbar from "./Components/Navbar"
 import HeroSection from './Sections/HeroSection'
 import MessageSection from "./Sections/MessageSection"
 import FlavorSection from "./Sections/FlavorSection"
+import NutritionSection from "./Sections/NutritionSection"
+import BenefitsSection from "./Sections/BenefitsSection"
 import { ScrollSmoother, ScrollTrigger } from "gsap/all"
 import gsap from "gsap"
 import { useGSAP } from "@gsap/react"
@@ -24,6 +26,8 @@ const App = () => {
           <HeroSection/>
           <MessageSection/>
           <FlavorSection/>
+          <NutritionSection/>
+          <BenefitsSection/>
           <div className="h-dvh border border-red-600"/>
         </div>
       </div>

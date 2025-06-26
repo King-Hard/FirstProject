@@ -84,7 +84,7 @@ const MessageSection = () => {
                      </div>
                     </div>
 
-                    <h1 className="second-message">your future with every gulp of Perfect Protei</h1>
+                    <h1 className="second-message">your future with every gulp of Perfect Protein</h1>
                 </div>
             
                 <div className="flex-center md:mt-20 mt-10">
