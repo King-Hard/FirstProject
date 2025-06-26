@@ -1,12 +1,14 @@
-import Navbar from "./Components/Navbar"
-import HeroSection from './Sections/HeroSection'
-import MessageSection from "./Sections/MessageSection"
-import FlavorSection from "./Sections/FlavorSection"
-import NutritionSection from "./Sections/NutritionSection"
-import BenefitsSection from "./Sections/BenefitsSection"
-import { ScrollSmoother, ScrollTrigger } from "gsap/all"
-import gsap from "gsap"
-import { useGSAP } from "@gsap/react"
+import NavBar from "./Components/NavBar";
+import HeroSection from './Sections/HeroSection';
+import MessageSection from "./Sections/MessageSection";
+import FlavorSection from "./Sections/FlavorSection";
+import NutritionSection from "./Sections/NutritionSection";
+import BenefitSection from "./Sections/BenefitSection";
+import TestimonialSection from "./Sections/TestimonialSection";
+import FooterSection from "./Sections/FooterSection";
+import { ScrollSmoother, ScrollTrigger } from "gsap/all";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother)
 
@@ -15,24 +17,29 @@ const App = () => {
     ScrollSmoother.create({
       smooth: 3,
       effects: true,
-    })
-  })
+    });
+  });
  
   return (
     <main>
-      <Navbar/>
+      <NavBar />
       <div id="smooth-wrapper">
         <div id="smooth-content">
-          <HeroSection/>
-          <MessageSection/>
-          <FlavorSection/>
-          <NutritionSection/>
-          <BenefitsSection/>
-          <div className="h-dvh border border-red-600"/>
+          <HeroSection />
+          <MessageSection />
+          <FlavorSection />
+          <NutritionSection />
+
+          <div>
+            <BenefitSection />
+            <TestimonialSection />
+          </div>
+
+          <FooterSection />
         </div>
       </div>
     </main>
-  )
-}
+  );
+};
 
 export default App

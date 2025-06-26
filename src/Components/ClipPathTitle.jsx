@@ -1,4 +1,4 @@
-const CilpPathTitle = ({title, color, bg, className, borderColor}) => {
+const ClipPathTitle = ({title, color, bg, className, borderColor}) => {
   return (
     <div className="general-title">
         <div style={{clipPath: "polygon(50% 0%, 50% 0%, 50% 100%, 50% 100%)", 
@@ -8,7 +8,7 @@ const CilpPathTitle = ({title, color, bg, className, borderColor}) => {
             </div>
         </div>
     </div>
-  )
-}
+  );
+};
 
-export default CilpPathTitle
+export default ClipPathTitle

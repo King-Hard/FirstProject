@@ -1,18 +1,18 @@
-import { useGSAP } from "@gsap/react"
-import { flavorlists } from "../Constants/Index"
-import gsap from "gsap"
-import { useRef } from "react"
-import { useMediaQuery } from "react-responsive"
+import { useGSAP } from "@gsap/react";
+import { flavorlists } from "../Constants/Index";
+import gsap from "gsap";
+import { useRef } from "react";
+import { useMediaQuery } from "react-responsive";
 
 const FlavorSlider = () => {
-    const slideRef = useRef()
+    const sliderRef = useRef();
 
     const isTablet = useMediaQuery({
-        query: "(max-width : 1024px)",
-    })
+        query: "(max-width: 1024px)",
+    });
 
     useGSAP(() =>{
-        const scrollAmount = slideRef.current.scrollWidth - window.innerWidth
+        const scrollAmount = sliderRef.current.scrollWidth - window.innerWidth;
 
         if(!isTablet){
             const tl = gsap.timeline({
@@ -23,13 +23,13 @@ const FlavorSlider = () => {
                     scrub: true,
                     pin: true,
                 },
-            })
+            });
 
             tl.to(".flavor-section", {
                 x: `-${scrollAmount + 1500}px`,
                 ease: "power1.inOut",
-            })
-        }
+            });
+        };
 
         const titleTl = gsap.timeline({
             scrollTrigger: {
@@ -38,7 +38,7 @@ const FlavorSlider = () => {
                 end: "bottom 80%",
                 scrub: true,
             },
-        })
+        });
 
         titleTl.to(".first-text-split", {
             xPercent: -30,
@@ -52,13 +52,13 @@ const FlavorSlider = () => {
             xPercent: -10,
             ease: "power1.inOut",
         }, "<")
-    })
+    });
 
   return ( 
     <div className="slider-wrapper">
-        <div className="flavors" ref={slideRef}>
+        <div className="flavors" ref={sliderRef}>
             {flavorlists.map((flavor) =>(
-                <div key={flavor.name} className={`relative z-30 lg:w-[50vw] w-96 lg:h-[70vh] md:w-[90vh] md:h[50vh] h-80 flex-none ${flavor.rotation}`}>
+                <div key={flavor.name} className={`relative z-30 lg:w-[50vw] w-96 lg:h-[70vh] md:w-[90vh] md:h-[50vh] h-80 flex-none ${flavor.rotation}`}>
                     <img src={`/images/${flavor.color}-bg.svg`} alt="" className="absolute bottom-0"/>
 
                     <img src={`/images/${flavor.color}-drink.webp`} alt="" className="drinks"/>
@@ -70,7 +70,7 @@ const FlavorSlider = () => {
             ))}
         </div>
     </div> 
-  )
-}
+  );
+};
 
 export default FlavorSlider

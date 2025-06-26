@@ -1,21 +1,21 @@
-import { useGSAP } from "@gsap/react"
-import gsap from "gsap"
-import { SplitText } from "gsap/all"
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { SplitText } from "gsap/all";
 
 const MessageSection = () => {
     useGSAP(() =>{
         const firstMsgSplit = SplitText.create(".first-message", {
             type: "words",
-        })
+        });
 
         const secondMsgSplit = SplitText.create(".second-message", {
             type: "words",
-        })
+        });
 
         const paragraphSplit = SplitText.create(".message-content p", {
             type: "words, lines",
             linesClass: "paragraph-line",
-        })
+        });
 
         gsap.to(firstMsgSplit.words, {
             color: "#faeade",
@@ -27,7 +27,7 @@ const MessageSection = () => {
                 end: "30% center",
                 scrub: true,
             },
-        })
+        });
 
         gsap.to(secondMsgSplit.words, {
             color: "#faeade",
@@ -39,7 +39,7 @@ const MessageSection = () => {
                 end: "bottom center",
                 scrub: true,
             },
-        })
+        });
 
         const revealTl = gsap.timeline({
             delay: 1,
@@ -47,20 +47,20 @@ const MessageSection = () => {
                 trigger: ".msg-text-scroll",
                 start: "top 60%",
             },
-        })
+        });
 
         revealTl.to(".msg-text-scroll", {
             duration: 1,
             clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
             ease: "circ.inOut",
-        })
+        });
 
         const paragraphTl = gsap.timeline({
             scrollTrigger: {
              trigger: ".message-content p",
              start: "top center", 
             },
-        })
+        });
 
         paragraphTl.from(paragraphSplit.words, {
             yPercent: 300,
@@ -68,8 +68,8 @@ const MessageSection = () => {
             ease: "power1.inOut",
             duration: 1,
             stagger: 0.01,
-        })
-    })
+        });
+    });
 
   return (
     <section className="message-content">
@@ -95,7 +95,7 @@ const MessageSection = () => {
             </div> 
         </div>
     </section> 
-  )
-}
+  );
+};
 
 export default MessageSection

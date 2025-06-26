@@ -1,15 +1,17 @@
-import { useMediaQuery } from "react-responsive"
-import { nutrientLists } from "../Constants/Index"
-import { useEffect, useState } from "react"
-import { useGSAP } from "@gsap/react"
-import gsap, { SplitText } from "gsap/all"
+import { useMediaQuery } from "react-responsive";
+import { nutrientLists } from "../Constants/Index";
+import { useEffect, useState } from "react";
+import { useGSAP } from "@gsap/react";
+import { SplitText } from "gsap/all";
+import gsap from "gsap";
+
 
 const NutritionSection = () => {
     const isMobile = useMediaQuery({
         query: "(max-width: 768px)",
-    })
+    });
 
-    const [list, setList] = useState(nutrientLists)
+    const [list, setList] = useState(nutrientLists);
 
     useEffect(() =>{
         if(isMobile){
@@ -17,24 +19,24 @@ const NutritionSection = () => {
         } else{
             setList(nutrientLists)
         }
-    }, [isMobile])
+    }, [isMobile]);
 
     useGSAP(() =>{
         const titleSplit = SplitText.create(".nutrition-title", {
             type: "chars",
-        })
+        });
 
         const paragraphSplit = SplitText.create(".nutrition-section p", {
             type: "words, lines",
             linesClass: "paragraph-line",
-        })
+        });
 
         const contentTl = gsap.timeline({
             scrollTrigger: {
                 trigger: ".nutrition-section",
                 start: "top center",
             },
-        })
+        });
 
         contentTl.from(titleSplit.chars, {
             yPercent: 100,
@@ -51,18 +53,18 @@ const NutritionSection = () => {
 
         const titleTl = gsap.timeline({
             scrollTrigger: {
-                trigger: ".nutrient-section",
+                trigger: ".nutrition-section",
                 start: "top 80%",
             },
-        })
+        });
 
         titleTl.to(".nutrition-text-scroll", {
             duration: 1,
             opacity: 1,
             clipPath: "polygon(100% 0%, 0% 0%, 0% 100%, 100% 100%)",
             ease: "power1.inOut"
-        })
-    })
+        });
+    });
 
   return (
     <section className="nutrition-section">
@@ -110,7 +112,7 @@ const NutritionSection = () => {
             </div>
         </div>
     </section>
-  )
-}
+  );
+};
 
 export default NutritionSection

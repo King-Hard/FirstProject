@@ -1,5 +1,5 @@
-import FlavorSlider from "../Components/FlavorSlider"
-import FlavorTitle from "../Components/FlavorTitle"
+import FlavorSlider from "../Components/FlavorSlider";
+import FlavorTitle from "../Components/FlavorTitle";
 
 const FlavorSection = () => {
   return (
@@ -13,7 +13,7 @@ const FlavorSection = () => {
             </div>
         </div>
     </section>
-  )
-}
+  );
+};
 
 export default FlavorSection
